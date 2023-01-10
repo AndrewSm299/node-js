@@ -17,17 +17,17 @@ while(true){
     i++
 }
 
-function product(id, name, descr, price, brand, sizes, actives, quantity, image){
+function product(id, name, description, price, brand, sizes, activesize, quantity, images){
     this.ID = id,
     this.name = name,
-    this.description = descr,
+    this.description = description,
     this.price = price,
     this.brand = brand,
     this.sizes = sizes,
-    this.activesize = actives,
+    this.activesize = activesize,
     this.quantity = quantity,
-    this.date = new Date(),
-    this.images = image
+    this.date = date,
+    this.images = images
 }
 
 product(id, name, descr, price, brand, sizes, actives, quantity, image)
