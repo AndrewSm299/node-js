@@ -28,8 +28,6 @@ function product(id, name, descr, price, brand, sizes, actives, quantity, image)
     this.quantity = quantity,
     this.date = new Date(),
     this.images = image
-    alert(this.date)
-    alert(image)
 }
 
 product(id, name, descr, price, brand, sizes, actives, quantity, image)
