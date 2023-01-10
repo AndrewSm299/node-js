@@ -9,11 +9,12 @@
 * @param {String} activesizes activesizes
 * @param {Integer} quantity quantity
 * @param {Date {date(YYYY-MM-dd hh:mm:ss)}} date date in format YYYY-MM-dd hh:mm:ss
+* @param {Array.<object>} reviews users reviews
 * @param {Array.<string>} images images
 *
 */
 
-function product(id, name, description, price, brand, sizes, activesize, quantity, images){
+function product(id, name, description, price, brand, sizes, activesize, quantity, date, reviews, images){
     this.ID = id,
     this.name = name,
     this.description = description,
