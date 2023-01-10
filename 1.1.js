@@ -12,3 +12,5 @@ function product(id, name, description, price, brand, sizes, activesize, quantit
 }
 
 product(id, name, descr, price, brand, sizes, actives, quantity, image)
+
+// i've deleted some trash code here so now it looks better
