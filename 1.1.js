@@ -1,3 +1,18 @@
+/**
+*
+* @param {Stribg} id id of  the product
+* @param {String} name name of the product
+* @param {String} description description of the product
+* @param {Number} price price of the product
+* @param {String} brand barnd of the product
+* @param {Array.<string>} sizes sizes
+* @param {String} activesizes activesizes
+* @param {Integer} quantity quantity
+* @param {Date {date(YYYY-MM-dd hh:mm:ss)}} date date in format YYYY-MM-dd hh:mm:ss
+* @param {Array.<string>} images images
+*
+*/
+
 function product(id, name, description, price, brand, sizes, activesize, quantity, images){
     this.ID = id,
     this.name = name,
