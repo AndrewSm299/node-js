@@ -1,25 +1,23 @@
 /**
-*
-* @param {String} id of  the product
-* @param {String} name name of the product
-* @param {String} description description of the product
-* @param {Number} price price of the product
-* @param {String} brand barnd of the product
-* @param {Array.<string>} sizes sizes
-* @param {String} activesizes activesizes
-* @param {Integer} quantity quantity
-* @param {Date(YYYY-MM-dd hh:mm:ss)} date date in format YYYY-MM-dd hh:mm:ss
-* @param {Array.<object>} reviews users reviews
-* @param {Array.<string>} images images
-* @param {String} r_id review's id
-* @param {String} author aurthor
-* @param {date(YYYY-MM-dd hh:mm:ss)} r_date date of the review
-* @param {String} r_comment commnet on the product
-* @param {Array.<number>} rating rating of the product
-*
+ *
+ * @param {String} id of  the product
+ * @param {String} name of the product
+ * @param {String} description of the product
+ * @param {Number} price of the product
+ * @param {String} brand of the product
+ * @param {Array.<string>} sizes of the product
+ * @param {String} activesizes of the product
+ * @param {Integer} quantity of the product
+ * @param {Array.<object>} reviews on the product
+ * @param {Array.<string>} images of the products
+ * @param {String} r_ID review's id
+ * @param {String} author author
+ * @param {String} comment on the product
+ * @param {Array.<number>} rating of the product
+ *
 */
 
-function product(id, name, description, price, brand, sizes, activesize, quantity, date, reviews, images){
+let products = function Product(id, name, description, price, brand, sizes, activesize, quantity, date, images, reviews){
     this.ID = id,
     this.name = name,
     this.description = description,
@@ -30,94 +28,91 @@ function product(id, name, description, price, brand, sizes, activesize, quantit
     this.quantity = quantity,
     this.date = date,
     this.images = images,
-    this.reviews = reviews
+    this.reviews = reviews,
 
-    this.reviews = function reviews(r_id, author, r_date, r_comment, rating){
-        this.id = r_id,
-        this.author = author,
-        this.date = r_date,
-        this.comment = r_comment,
-        this.rating = rating
-    },
-
-    function getid() {
+    this.getID = function getID() {
         return this.ID
     },
-    function setnewid(newid){
-        this.ID = newid
+    this.setID = function setID(id){
+        this.ID = id
     }, 
 
-    function getname() {
+    this.getName = function getName() {
         return this.name
     },
-    function setnewname(newname){
-        this.name = newname
+    this.setName = function setName(name){
+        this.name = name
     },
 
-    function getdescription() {
+    this.getDescription = function getDescription() {
         return this.description
     },
-    function setnewdescription(newdescription){
-        this.description = newdescription
+    this.setDescription = function setDescription(description){
+        this.description = description
     },
 
-    function getprice() {
+    this.getPrice = function getPrice() {
         return this.price
     },
-    function setnewprice(newprice){
-        this.price = newprice
+    this.setPrice = function setPrice(price){
+        this.price = price
     },
 
-    function getbrand() {
+    this.getBrand = function getBrand() {
         return this.brand
     },
-    function setnewbrand(newbrand){
-        this.brand = newbrand
+    this.setBrand = function setBrand(brand){
+        this.brand = brand
     },
 
-    function getsizes() {
+    this.getSizes = function getSizes() {
         return this.sizes
     },
-    function setnewsizes(newsizes){
-        this.sizes = newsizes
+    this.setSizes = function setSizes(sizes){
+        this.sizes = sizes
     },
 
-    function getactivesizes() {
+    this.getActiveSizes = function getActiveSizes() {
         return this.activesizes
     },
-    function setnewactivesizes(newactivesizes){
-        this.activesizes = newactivesizes
+    this.setActiveSizes = function setActiveSizes(activesizes){
+        this.activesizes = activesizes
     },
 
-    function getquantity() {
+    this.getQuantity = function getQuantity() {
         return this.quantity
     },
-    function setnewquantity(newquantity){
-        this.quantity = newquantity
+    this.setQuantity = function setQuantity(quantity){
+        this.quantity = quantity
     },
 
-    function getdate() {
+    this.getReviews = function getReviews(){
+        return this.reviews
+    },
+    this.setReviews = function setReviews(review){
+        this.reviews = review
+    },
+
+    this.getDate = function getDate() {
         return this.date
     },
-    function dsetnewdate(newdate){
-        this.date = newdate
+    this.setDate = function setDate(date){
+        this.date = date
     },
 
-    function getimages() {
+    this.getImages = function getImages() {
         return this.images
     },
-    function setnewimages(newimages){
-        this.images = newimages
+    this.setImage = function setImages(images){
+        this.images = images
     },
 
-
-
-    function getReviewByID(rev_id){
+    this.getReviewByID = function getReviewByID(rev_id){
         return this.reviews.find(e => e.id === rev_id);
     },
 
-    function getimage(image_key){
-        if(image_key === 'undefined' || image_key === null){
+    function getImage(image_key){
+        if(image_key === 'undefined' || image_key === null || image_key === NaN){
             return this.image[0]
         }
         else{
@@ -141,12 +136,64 @@ function product(id, name, description, price, brand, sizes, activesize, quantit
         delete this.reviews.find(e => e.id === rev_id);
     },
 
-    function getAverageRating(reviews){
+    function getAverageRating(){
         averagerating = {service: 0, price: 0, value: 0, quality: 0}
+        let a = 0
         for(let i = 0; i < this.reviews.rating.length; i++){
-            
+            a += this.reviews.rating.service[i]
         }
+        averagerating.service = a / this.reviews.rating.length
+        a = 0
+
+        for(let i = 0; i < this.reviews.rating.length; i++){
+            a += this.reviews.rating.price[i]
+        }
+        averagerating.price = a / this.reviews.rating.length
+        a = 0
+
+        for(let i = 0; i < this.reviews.rating.length; i++){
+            a += this.reviews.rating.value[i]
+        }
+        averagerating.value = a / this.reviews.rating.length
+        a = 0
+
+        for(let i = 0; i < this.reviews.rating.length; i++){
+            a += this.reviews.rating.quality[i]
+        }
+        averagerating.quality = a / this.reviews.rating.length
+
         return averagerating
     }
+
+}
+
+function Reviews(r_ID, author, date, comment, rating){
+    this.ID = r_ID,
+    this.author = author,
+    this.date = date,
+    this.comment = comment,
+    this.rating = rating
+
+    this.setID = (ID) => this.ID = ID
+    this.getID = () => this.ID
+
+    this.setAuthor = (author) => this.author = author
+    this.getAuthor = () => this.author
+
+    this.setDate = (date) => this.date = date
+    this.getDate = () => this.date = date
+
+    this.setComment = (comment) => this.comment = comment
+    this.getComment = () => this.comment
+
+    this.setRating = (rating) => this.rating = {'service': rating[0], 'price': rating[1], 'value': rating[2], 'quality': rating[3]}
+    this.getRating = () => this.rating
+}
+
+function searchProduct(products, search){
+
+}
+
+function sortProducts(products,sorRule){
 
 }
