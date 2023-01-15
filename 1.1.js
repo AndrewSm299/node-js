@@ -10,10 +10,6 @@
  * @param {Integer} quantity of the product
  * @param {Array.<object>} reviews on the product
  * @param {Array.<string>} images of the products
- * @param {String} r_ID review's id
- * @param {String} author author
- * @param {String} comment on the product
- * @param {Array.<number>} rating of the product
  *
 */
 
@@ -30,88 +26,42 @@ let products = function Product(id, name, description, price, brand, sizes, acti
     this.images = images,
     this.reviews = reviews,
 
-    this.getID = function getID() {
-        return this.ID
-    },
-    this.setID = function setID(id){
-        this.ID = id
-    }, 
+    this.getID = () =>  this.ID
+    this.setID = (id) => this.ID = id 
 
-    this.getName = function getName() {
-        return this.name
-    },
-    this.setName = function setName(name){
-        this.name = name
-    },
+    this.getName = () => this.name
+    this.setName = (name) => this.name = name
 
-    this.getDescription = function getDescription() {
-        return this.description
-    },
-    this.setDescription = function setDescription(description){
-        this.description = description
-    },
+    this.getDescription = () => this.description
+    this.setDescription = (description) => this.description = description
 
-    this.getPrice = function getPrice() {
-        return this.price
-    },
-    this.setPrice = function setPrice(price){
-        this.price = price
-    },
+    this.getPrice = () => this.price
+    this.setPrice = (price) => this.price = price
 
-    this.getBrand = function getBrand() {
-        return this.brand
-    },
-    this.setBrand = function setBrand(brand){
-        this.brand = brand
-    },
+    this.getBrand = () => this.brand
+    this.setBrand = (brand) => this.brand = brand
 
-    this.getSizes = function getSizes() {
-        return this.sizes
-    },
-    this.setSizes = function setSizes(sizes){
-        this.sizes = sizes
-    },
+    this.getSizes = () => this.sizes
+    this.setSizes = (sizes) => this.sizes = sizes
 
-    this.getActiveSizes = function getActiveSizes() {
-        return this.activesizes
-    },
-    this.setActiveSizes = function setActiveSizes(activesizes){
-        this.activesizes = activesizes
-    },
+    this.getActiveSizes = () => this.activesizes
+    this.setActiveSizes = (activesizes) => this.activesizes = activesizes
 
-    this.getQuantity = function getQuantity() {
-        return this.quantity
-    },
-    this.setQuantity = function setQuantity(quantity){
-        this.quantity = quantity
-    },
+    this.getQuantity = () => this.quantity
+    this.setQuantity = (quantity) => this.quantity = quantity
 
-    this.getReviews = function getReviews(){
-        return this.reviews
-    },
-    this.setReviews = function setReviews(review){
-        this.reviews = review
-    },
+    this.getReviews = () => this.reviews
+    this.setReviews = (review) => this.reviews = review
 
-    this.getDate = function getDate() {
-        return this.date
-    },
-    this.setDate = function setDate(date){
-        this.date = date
-    },
+    this.getDate = () => this.date
+    this.setDate = (date) => this.date = date
 
-    this.getImages = function getImages() {
-        return this.images
-    },
-    this.setImage = function setImages(images){
-        this.images = images
-    },
+    this.getImages = () => this.images
+    this.setImage = (images) => this.images = images
 
-    this.getReviewByID = function getReviewByID(rev_id){
-        return this.reviews.find(e => e.id === rev_id);
-    },
+    this.getReviewByID = (id) => this.getReviews.find(review => review.id === id),
 
-    function getImage(image_key){
+    this.getImage = (image_key) => {
         if(image_key === 'undefined' || image_key === null || image_key === NaN){
             return this.image[0]
         }
@@ -120,23 +70,15 @@ let products = function Product(id, name, description, price, brand, sizes, acti
         }
     },
 
-    function addSize(size_new){
-        this.sizes = sizes.push(size_new)
-    },
+    this.addSize = (size_new) => this.sizes = sizes.push(size_new)
     
-    function deleteSize(size_key){
-        delete this.sizes.find(e => e.sizes === size_key)
-    },
+    this.deleteSize = (size_key) => delete this.sizes.find(e => e.sizes === size_key)
 
-    function addReview(newreview){
-        this.reviews.push(newreview)
-    },
+    this.addReview = (newreview) => this.reviews.push(newreview)
 
-    function deleteReview(rev_id){
-        delete this.reviews.find(e => e.id === rev_id);
-    },
+    this.deleteReview = (rev_id) => delete this.reviews.find(e => e.id === rev_id),
 
-    function getAverageRating(){
+    this.getAverageRating = () => {
         averagerating = {service: 0, price: 0, value: 0, quality: 0}
         let a = 0
         for(let i = 0; i < this.reviews.rating.length; i++){
@@ -166,7 +108,14 @@ let products = function Product(id, name, description, price, brand, sizes, acti
     }
 
 }
-
+/** 
+ * 
+ * @param {String} r_ID review's id
+ * @param {String} author author
+ * @param {String} comment on the product
+ * @param {Array.<number>} rating of the product
+ * 
+*/
 function Reviews(r_ID, author, date, comment, rating){
     this.ID = r_ID,
     this.author = author,
