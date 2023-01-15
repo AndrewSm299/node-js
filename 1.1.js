@@ -76,7 +76,7 @@ let products = function Product(id, name, description, price, brand, sizes, acti
 
     this.addReview = (newreview) => this.reviews.push(newreview)
 
-    this.deleteReview = (rev_id) => delete this.reviews.find(e => e.id === rev_id),
+    this.deleteReview = (rev_id) => delete this.reviews.find(reviews => reviews.ID === rev_id),
 
     this.getAverageRating = () => {
         averagerating = {service: 0, price: 0, value: 0, quality: 0}
