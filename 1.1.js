@@ -13,7 +13,7 @@
  *
 */
 
-let products = function Product(id, name, description, price, brand, sizes, activesize, quantity, date, images, reviews){
+function Product(id, name, description, price, brand, sizes, activesize, quantity, date, images, reviews){
     this.ID = id,
     this.name = name,
     this.description = description,
